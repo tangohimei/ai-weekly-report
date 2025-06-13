@@ -103,6 +103,36 @@
             cursor: pointer;
             border-radius: 50%;
         }
+        
+        /* New styles for training simulation */
+        .progress-bar {
+            background-color: #d1d5db; /* gray-300 */
+            border-radius: 9999px;
+            overflow: hidden;
+            width: 100%;
+            height: 24px;
+            border: 2px solid #9ca3af; /* gray-400 */
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #10b981; /* emerald-500 */
+            transform: translateX(-100%);
+            transition: background-color 0.3s;
+        }
+        
+        @keyframes fill-slow {
+            to { transform: translateX(0); }
+        }
+        @keyframes fill-fast {
+            to { transform: translateX(0); }
+        }
+
+        .animate-slow {
+            animation: fill-slow 4s linear forwards;
+        }
+        .animate-fast {
+            animation: fill-fast 0.5s linear forwards;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -116,7 +146,7 @@
                 <nav class="hidden md:flex space-x-2">
                     <a href="index.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full active">AI一周大事件</a>
                     <a href="#comparison-section" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">综合对比</a>
-                    <a href="#hot-topics-section" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">本周其他热点</a>
+                    <a href="#hot-topics-section" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">本周热门话题</a>
                     <a href="daily-news.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">每日新闻热点</a>
                     <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">往期新闻回顾</a>
                 </nav>
@@ -130,7 +160,7 @@
     <main class="py-12 sm:py-16">
         <div id="topics-hub" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">AI行业每周热点-W23（参考）</h1>
-            <p class="text-lg text-gray-600 max-w-6xl mx-auto mb-12">这个网站整理了最近一周AI行业话题度/业务相关度最高的5个事件（计划每周日更新），并附带了相关事件的介绍和简单/详细两个版本的分析，另外您也可以点击模块里的“相关报道”按钮来访问相关媒体报道。<br>除此之外，您还可以在这里查看每日其他热门新闻和每周热度最高的十个话题（不一定都是AI行业），以帮您省去信息搜集和预处理信息的时间，如果您在浏览的过程中有任何的疑问或者别的需求，您可以随时告诉我，我会第一时间对网页进行修改，感谢您的访问！</p>
+            <p class="text-lg text-gray-600 max-w-6xl mx-auto mb-12">这个网站整理了最近一周AI行业话题度/业务相关度最高的5个事件（计划每周日更新），并附带了相关事件的介绍和简单/详细两个版本的分析，另外您也可以点击每个模块里的“相关报道”按钮来访问相关媒体报道。<br>除此之外，您还可以在这里查看每日其他热门新闻和每周热度最高的十个话题（不一定都是AI行业），以帮您缩短信息搜集和预处理信息的时间。如果您在浏览的过程中有任何的疑问或者别的需求，您可以随时告诉我，我会第一时间对网页进行修改，感谢您的访问！</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 <a href="#apple-section" class="topic-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col items-center justify-center text-center">
@@ -300,39 +330,40 @@
                 </div>
             </section>
             
-            <!-- Meta Section -->
+                        <!-- Meta Section (Updated) -->
             <section id="meta-section" class="py-16 bg-white/50 rounded-3xl mx-2 sm:mx-4 md:mx-auto max-w-7xl">
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-teal-700">3. 世界模型：教AI学会“常识”</h2>
-                        <p class="mt-4 text-lg text-gray-600">Meta发布了J-VEPA 2“世界模型”，目标是让AI像人一样理解世界如何运作。拥有“常识”的AI有多大区别？点击下方按钮，看看机器人管家的表现有何不同。</p>
+                        <h2 class="text-3xl font-bold text-teal-700">3. 世界模型：AI学习效率的革命</h2>
+                        <p class="mt-4 text-lg text-gray-600">Meta的“世界模型”创新之处在于，它让AI像婴儿一样通过观察来学习，而不是通过海量模拟试错。这带来的效率提升是惊人的。点击下方按钮，直观感受训练时间的巨大差异。</p>
                     </div>
 
                      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div>
                             <h3 class="text-xl font-semibold mb-2">内容简述</h3>
-                            <p class="text-gray-700 leading-relaxed">Meta的AI研究院发布了J-VEPA 2，这是一种能通过观看视频来学习物理规律的“世界模型”。它能让AI理解物体如何运动、人如何与环境互动，并预测行为后果。这种“常识”对开发更智能、更安全的机器人和AI助手至关重要，能让它们在行动前“三思”，甚至在陌生的环境里也能高效完成任务。</p>
-                            <div class="mt-6">
-                                <a href="https://mp.weixin.qq.com/s/M1mKgpz4ecCIC3xKq50k-A" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-teal-700 font-semibold py-2 px-4 border border-teal-600 rounded-full hover:bg-teal-50 transition-colors">
-                                    相关报道 →
-                                </a>
-                            </div>
-                            <div class="mt-6 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                            <p class="text-gray-700 leading-relaxed mb-4">Meta的AI研究院发布了J-VEPA 2，这是一种能通过观看视频来学习物理规律的“世界模型”。它能让AI理解物体如何运动、人如何与环境互动，并预测行为后果。这种“常识”对开发更智能、更安全的机器人和AI助手至关重要，能让它们在行动前“三思”，甚至在陌生的环境里也能高效完成任务。</p>
+                            <a href="https://mp.weixin.qq.com/s/M1mKgpz4ecCIC3xKq50k-A" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-teal-700 font-semibold py-2 px-4 border border-teal-600 rounded-full hover:bg-teal-50 transition-colors">
+                                相关报道 →
+                            </a>
+                            <div class="mt-8 bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
                                 <h4 class="font-bold">创始人视角点评：</h4>
                                 <p class="text-gray-800 mt-2">“Meta的‘世界模型’正在触及AI的圣杯：常识。过去的AI是‘学舌的鹦鹉’，而拥有常识的AI，才可能成为‘能理解的伙伴’。它不再是单纯地识别像素，而是开始理解物理世界的因果规律。这对机器人、对通用人工智能（AGI）的意义是颠覆性的。我们正在从‘教会AI说话’，迈向‘教会AI思考世界’的关键一步。”</p>
                             </div>
                         </div>
-                        <div class="bg-stone-100 p-6 rounded-2xl h-96 flex flex-col items-center justify-center">
-                            <div class="w-full h-64 bg-white rounded-lg relative overflow-hidden">
-                                <div id="robot-world" class="relative w-full h-full">
-                                    <div id="robot-icon" class="absolute text-3xl transition-all duration-1000 ease-in-out" style="left: 10%; top: 40%;">🤖</div>
-                                    <div class="absolute w-8 h-8 bg-blue-300 rounded-full" style="left: 75%; top: 42%;"></div>
-                                    <svg id="robot-path" class="absolute w-full h-full top-0 left-0" viewBox="0 0 300 150">
-                                        <!-- Paths will be drawn here by JS -->
-                                    </svg>
+                        <div class="bg-stone-100 p-8 rounded-2xl flex flex-col justify-center items-center h-full">
+                            <div class="w-full text-center">
+                                <div class="text-5xl mb-4">🤖</div>
+                                <h4 id="training-method-title" class="text-xl font-bold mb-2 text-teal-800">传统强化学习</h4>
+                                <p class="text-sm text-gray-500 mb-4">(通过海量虚拟环境试错)</p>
+                                <div class="progress-bar mb-4">
+                                    <div id="progress-fill" class="progress-bar-fill"></div>
+                                </div>
+                                <div class="text-left">
+                                    <p class="font-semibold">预计训练时间:</p>
+                                    <p id="training-time-text" class="text-3xl font-bold text-red-500">2000 小时</p>
                                 </div>
                             </div>
-                             <button id="toggle-common-sense" class="mt-6 bg-teal-600 text-white font-bold py-2 px-6 rounded-full hover:bg-teal-700 transition-colors">启动“常识”模块</button>
+                            <button id="toggle-training-method" class="mt-8 bg-teal-600 text-white font-bold py-3 px-6 rounded-full hover:bg-teal-700 transition-colors">切换至世界模型训练</button>
                         </div>
                     </div>
                     <!-- 全面分析模块框架开始 -->
@@ -598,46 +629,55 @@
                 });
             });
 
-            // --- Meta Robot Interaction ---
-            const toggleButton = document.getElementById('toggle-common-sense');
-            const robotIcon = document.getElementById('robot-icon');
-            const robotPath = document.getElementById('robot-path');
-            let hasCommonSense = false;
+            // --- World Model Training Time Simulation Script ---
+            const toggleBtn = document.getElementById('toggle-training-method');
+            const titleEl = document.getElementById('training-method-title');
+            const timeEl = document.getElementById('training-time-text');
+            const progressFillEl = document.getElementById('progress-fill');
+            
+            let isWorldModel = false;
 
-            function runRobotAnimation() {
-                robotPath.innerHTML = ''; 
-                robotIcon.style.left = '10%';
-                robotIcon.style.top = '40%';
+            const traditionalData = {
+                title: '传统强化学习',
+                subtitle: '(通过海量虚拟环境试错)',
+                time: '2000 小时',
+                timeColor: 'text-red-500',
+                animClass: 'animate-slow'
+            };
 
-                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                path.setAttribute('fill', 'none');
-                path.setAttribute('stroke-width', '2');
+            const worldModelData = {
+                title: '世界模型学习',
+                subtitle: '(通过观察视频学习常识)',
+                time: '20 小时',
+                timeColor: 'text-green-500',
+                animClass: 'animate-fast'
+            };
+
+            function updateTrainingView() {
+                const data = isWorldModel ? worldModelData : traditionalData;
+
+                titleEl.textContent = data.title;
+                titleEl.nextElementSibling.textContent = data.subtitle;
+                timeEl.textContent = data.time;
                 
-                if (hasCommonSense) {
-                    path.setAttribute('d', 'M 35,70 Q 150,20 230,72');
-                    path.classList.add('smart');
-                    setTimeout(() => {
-                        robotIcon.style.left = '70%';
-                        robotIcon.style.top = '42%';
-                    }, 500);
-                } else {
-                    path.setAttribute('d', 'M 35,70 L 150,120 L 180,50 L 230,72');
-                    path.classList.add('clumsy');
-                     setTimeout(() => {
-                        robotIcon.style.left = '70%';
-                        robotIcon.style.top = '42%';
-                    }, 1800);
-                }
-                path.classList.add('robot-path-line');
-                robotPath.appendChild(path);
+                // Update text color
+                timeEl.classList.remove('text-red-500', 'text-green-500');
+                timeEl.classList.add(data.timeColor);
+
+                // Restart animation
+                progressFillEl.classList.remove('animate-slow', 'animate-fast');
+                void progressFillEl.offsetWidth; // Force reflow to restart animation
+                progressFillEl.classList.add(data.animClass);
             }
             
-            toggleButton.addEventListener('click', () => {
-                hasCommonSense = !hasCommonSense;
-                toggleButton.textContent = hasCommonSense ? '移除“常识”模块' : '启动“常识”模块';
-                runRobotAnimation();
+            toggleBtn.addEventListener('click', () => {
+                isWorldModel = !isWorldModel;
+                toggleBtn.textContent = isWorldModel ? '切换回传统训练' : '切换至世界模型训练';
+                updateTrainingView();
             });
-            runRobotAnimation();
+
+            // Initial setup
+            updateTrainingView();
 
             // --- AI Toy Interaction ---
             const toggleToyButton = document.getElementById('toggle-ai-toy');
