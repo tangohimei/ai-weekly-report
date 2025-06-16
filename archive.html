@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>往期新闻回顾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony (Stone Neutrals with Teal Accent) -->
+    <!-- Application Structure Plan: This archive page uses a chronological, list-based layout to display past news. Content is grouped by date for clear organization. Each entry is simplified to just a linked title, optimizing for scannability and quick access to source material. The structure is designed to be easily updatable by manually adding new date blocks and news items. -->
+    <!-- Visualization & Content Choices: 
+        1. Date Grouping: Report Info -> Past news events. Goal -> Organize a large volume of past news chronologically. Viz/Method -> HTML headings (h2) for dates, followed by an ordered or unordered list. Justification -> This is a classic, highly intuitive pattern for archives, allowing users to easily navigate to news from a specific day. Library -> None (HTML/CSS).
+        2. Linked Titles: Report Info -> News title and source link. Goal -> Provide a concise summary and direct access to the source. Viz/Method -> A list of linked titles. Justification -> For an archive, users primarily want to scan headlines. This format is clean, space-efficient, and directly serves the user's need to find and access specific past articles. Library -> None (HTML/CSS).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f7f4;
+            color: #3d3d3d;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover, .nav-button.active {
+            background-color: #00796b;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2);
+        }
+        .archive-item {
+            transition: background-color 0.2s ease;
+        }
+        .archive-item:hover {
+            background-color: #e0f2f1; /* a light teal for hover */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-teal-700">🗓️ 往期新闻回顾</span>
+                </div>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="index.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">AI一周大事件</a>
+                    <a href="daily-news.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">每日新闻热点</a>
+                    <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full active">往期新闻回顾</a>
+                </nav>
+                <div class="md:hidden">
+                     <a href="index.html" class="text-teal-700 font-bold hover:underline">AI周报</a>
+                     <a href="daily-news.html" class="ml-4 text-teal-700 font-bold hover:underline">每日新闻</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 sm:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">AI新闻档案</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">在这里，您可以回顾过去浏览过的行业热点事件。</p>
+            </div>
+            
+            <div class="space-y-12">
+                <!-- Date Block: June 13, 2025 -->
+                <div>
+                    <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">2025年6月13日</h2>
+                    <div class="space-y-3">
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/hatHETaExiDdcoDIMCNIVw" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">1. 豆包1.6多模态推理发威，闯关带图大题。</a>
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/16aXVhz2LJcbZpOFfdNnrg" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">2. AMD最新发布！“新芯片性能优于英伟达”</a>
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://theoutpost.ai/news-story/us-projects-limited-ai-chip-production-by-huawei-warns-of-china-s-rapid-advancement-16584/" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">3. 中美科技战线：华盛顿对华为半导体进展的最新评估</a>
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/bRPhYTqzhdbSq65AFnnk1Q" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">4. 生产者价格指数降温，助燃美联储降息预期</a>
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/qcs-sSyVUOKNaAe4eLgvug" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">5. 角逐稳定币，美元化卷土重来？</a>
+                            </p>
+                        </div>
+                          <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/Xs7DYKvP5P8yLMReaUDk2Q" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">6. 搜索范式革命：纳米AI与谷歌的「超级搜索智能体」共识</a>
+                            </p>
+                        </div>
+                         <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/-xjneBhDSndR-3kD8tpdFQ" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">7. AI Coding的未来，程序员不再写代码！</a>
+                            </p>
+                        </div>
+                         <!-- Add more items for this date as needed -->
+                    </div>
+                </div>
+
+                <!-- Date Block: June 14, 2025 -->
+                <div>
+                    <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">2025年6月11日（仅示例）</h2>
+                    <div class="space-y-3">
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://example.com/past-news-3" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">1. 开源社区发布全新AI框架，大幅降低开发者入门门槛。</a>
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://example.com/past-news-4" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">2. AI在农业领域的应用取得进展，实现精准灌溉与病虫害防治。</a>
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://example.com/past-news-5" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">3. 针对AI生成内容的版权归属问题，法律界展开新一轮讨论。</a>
+                            </p>
+                        </div>
+                         <!-- Add more items for this date as needed -->
+                    </div>
+                </div>
+                
+                <!-- This is the template block you can copy and paste to add a new date -->
+                <div id="template-block" class="hidden">
+                    <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">YYYY年MM月DD日</h2>
+                    <div class="space-y-3">
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="PASTE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">PASTE_TITLE_HERE</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white mt-16">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; AI热点解读。内容根据公开信息整理，仅供参考。</p>
+            <p class="mt-1">交互式报告-W24</p>
+        </div>
+    </footer>
+
+</body>
+</html>

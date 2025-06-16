@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日新闻热点</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony (Stone Neutrals with Teal Accent) -->
+    <!-- Application Structure Plan: This page adopts a clean, card-based layout for daily news hot topics, providing a digestible overview. It features a sticky header for navigation back to the main AI report page and a dedicated section for listing 10 hot topics. Each topic is presented as an interactive card, containing a title (summary), a brief introduction, an image placeholder, and an external link. This structure facilitates quick scanning and easy access to original sources, making current events highly consumable. -->
+    <!-- Visualization & Content Choices: 
+        1. Hot Topic Cards: Report Info -> 10 recent news events. Goal -> Provide quick, digestible summaries and links to original sources. Viz/Method -> HTML/CSS card components. Interaction -> Clickable title/link to external source. Image placeholder for visual appeal. Justification -> Cards are a widely understood and effective pattern for presenting discrete pieces of information in a list format, encouraging quick scanning and selective deeper dives. Library -> None (HTML/CSS).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f7f4;
+            color: #3d3d3d;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover, .nav-button.active {
+            background-color: #00796b;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2);
+        }
+        .news-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-teal-700">📰 每日新闻热点</span>
+                </div>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="index.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">AI一周大事件</a>
+                    <a href="daily-news.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full active">每日新闻热点</a>
+                    <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">往期新闻回顾</a>
+                </nav>
+                <div class="md:hidden">
+                    <a href="index.html" class="text-teal-700 font-bold hover:underline">AI周报</a>
+                    <a href="archive.html" class="ml-4 text-teal-700 font-bold hover:underline">往期新闻</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 sm:py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">今日热门话题概览</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">精选今日十大热点事件，助您快速掌握世界脉动。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Hot Topic 1 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                  <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                       <img src="images/1.png" alt="本地图片" class="w-full h-full object-cover object-center">  
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://mp.weixin.qq.com/s/pLhFltzX0Jh_PQkN8VeLgg" target="_blank" rel="noopener noreferrer" class="hover:underline">1. 硅谷巨震！Alexandr Wang加入Meta！</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        就在今天，一则消息引爆了整个科技圈：年仅28岁的Scale AI创始人兼CEO华人天才 Alexandr Wang，发表全员信正式宣布离职，并以一种堪称“王炸”的方式，加盟Meta。
+                    </p>
+                    <a href="https://mp.weixin.qq.com/s/pLhFltzX0Jh_PQkN8VeLgg" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 2 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="images/22.png" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://mp.weixin.qq.com/s/WAkVPeG5lkdIUkABJwDnTQ" target="_blank" rel="noopener noreferrer" class="hover:underline">2. 我国成功开展首例侵入式脑机接口临床试验</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                      用意念操控万物的“脑机接口”，就这样离我们更近了？！据央妈最新报道，我国已成功开展首例侵入式脑机接口临床试验——一位因意外事故导致四肢截肢的男子，现在仅凭意念就能玩五子棋游戏、发短信等等。
+                    </p>
+                    <a href="https://mp.weixin.qq.com/s/WAkVPeG5lkdIUkABJwDnTQ" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 3 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="https://theoutpost.ai/_next/image/?url=https%3A%2F%2Fcdn.theoutpost.ai%2Ffiles%2Farticle_285866_2b53b3e2_ba2e_4f45_8153_a5f663397721_1749759502572_6c89857b0e.jpg&w=1920&q=75" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://theoutpost.ai/news-story/mattel-partners-with-open-ai-to-develop-ai-powered-interactive-toys-and-experiences-16563/" target="_blank" rel="noopener noreferrer" class="hover:underline">3. AI进入玩具箱：美泰与OpenAI开辟新领域</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                       全球知名的玩具制造商美泰（Mattel）宣布与人工智能领域的领导者OpenAI达成战略合作伙伴关系，旨在将生成式AI技术深度整合到其玩具产品和创意流程中 。
+                    </p>
+                    <a href="https://theoutpost.ai/news-story/mattel-partners-with-open-ai-to-develop-ai-powered-interactive-toys-and-experiences-16563/" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 4 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                   <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2199793091.jpg" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://techcrunch.com/2025/06/14/google-reportedly-plans-to-cut-ties-with-scale-ai/" target="_blank" rel="noopener noreferrer" class="hover:underline">4. 谷歌计划切断与 Scale AI 的联系</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Meta 对 Scale AI 的巨额投资可能会让这家初创公司的一些客户犹豫不决。据路透社报道，谷歌原本计划今年向 Scale 支付 2 亿美元，但目前正与竞争对手进行谈判，并计划断绝关系。据报道，微软也在考虑退出，OpenAI 几个月前也做出了类似的决定
+                    </p>
+                    <a href="https://techcrunch.com/2025/06/14/google-reportedly-plans-to-cut-ties-with-scale-ai/" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 5 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="images/5.png" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://www.xinhuanet.com/world/20250614/4b48a9ac4a604c04850589fad913e837/c.html" target="_blank" rel="noopener noreferrer" class="hover:underline">5. 恐慌指数飙升：中东冲突引爆全球市场</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        由于中东地缘政治紧张局势急剧升级，以色列与伊朗发生直接军事冲突，全球金融市场在过去两天内陷入剧烈动荡。国际油价单日飙升超7%，金价突破3400美元/盎司，VIX恐慌指数突破20的警戒线，而原油波动率指数OVX甚至超越VIX，显示能源市场成为恐慌的中心。美股三大指数集体下挫，全球市场避险情绪急剧升温。 
+                    </p>
+                    <a href="https://www.xinhuanet.com/world/20250614/4b48a9ac4a604c04850589fad913e837/c.html" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 6 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="https://pics7.baidu.com/feed/f3d3572c11dfa9ec11fabe20d106090c908fc11c.jpeg@f_auto?token=d29c7566a0c40f82b127205cc16f3a60" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://mp.weixin.qq.com/s/yZOUzoEHQdBuNFrSIXVB9w" target="_blank" rel="noopener noreferrer" class="hover:underline">6. 带瘫全球互联网，Google云全球故障</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                       这次大范围的中断事件，无异于一次系统性风险的公开警报，它残酷地揭示了“云单极化”所带来的潜在危险。互联网的架构，在不知不觉中已经从一个设计初衷为去中心化的网络，演变成一个在很大程度上依赖于少数几家云服务寡头（主要是AWS、谷歌云和Azure）的体系。
+                    </p>
+                    <a href="https://mp.weixin.qq.com/s/yZOUzoEHQdBuNFrSIXVB9w" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 7 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="images/7.png" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://economictimes.indiatimes.com/tech/artificial-intelligence/y-combinators-spring-2025-batch-features-70-startups-focused-on-agentic-ai/articleshow/121860763.cms" target="_blank" rel="noopener noreferrer" class="hover:underline">7. AI创投热潮：资本涌入“智能体”赛道</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        尽管宏观经济存在不确定性，但资本正加速涌入特定AI赛道。过去几天，AI领域见证了多笔巨额融资：数据公司Scale AI在与Meta的交易中估值达290亿美元；企业AI助手Glean以72亿美元估值融资1.5亿美元；AI机器人公司Gecko Robotics以12.5亿美元估值融资1.25亿美元。同时，顶级孵化器Y Combinator的2025年春季批次中，有多达70家初创公司专注于“智能体（Agentic AI）”。
+                    </p>
+                    <a href="https://economictimes.indiatimes.com/tech/artificial-intelligence/y-combinators-spring-2025-batch-features-70-startups-focused-on-agentic-ai/articleshow/121860763.cms"target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 8 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="images/88.png" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://www.gov.cn/lianbo/bumen/202506/content_7027918.htm" target="_blank" rel="noopener noreferrer" class="hover:underline">8. “AI+”的经济印证：中国高技术产业增长15%</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                      根据中国国家税务总局发布的最新增值税发票数据，2025年5月，中国高技术产业销售收入同比增长了15%，延续了快速增长的势头。报告特别指出，这一增长与“人工智能+”行动的深入推进直接相关，其中工业机器人和特殊作业机器人制造的销售收入分别实现了13.2%和28.3%的惊人增长。
+                    </p>
+                    <a href="https://www.gov.cn/lianbo/bumen/202506/content_7027918.htm" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 9 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                   <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="images/99.png" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://www.sohu.com/a/855472328_122066678" target="_blank" rel="noopener noreferrer" class="hover:underline">9. IP变现新路径：泡泡玛特进军珠宝市场</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        中国潮流玩具巨头泡泡玛特（Pop Mart）正式推出旗下独立珠宝品牌“popop”，并在北京和上海开设首批门店。该品牌主打融合了泡泡玛特旗下热门IP（如Molly, Skullpanda, Labubu）的珠宝饰品，定价从数百到数千元不等，标志着公司在IP变现和品牌多元化上迈出重要一步。泡泡玛特卖珠宝，本质是将其收割的“情绪税”升级为“品牌信仰税”。它赌的是，当年为塑料娃娃一掷千金的年轻人，如今也愿意为刻着同样IP的银链子买单。
+                    </p>
+                    <a href="https://www.sohu.com/a/855472328_122066678" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+
+                <!-- Hot Topic 10 -->
+                <div class="news-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col">
+                    <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                        <img src="images/10.png" alt="网络图片" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="font-bold text-xl text-teal-800 mb-2 leading-tight">
+                        <a href="https://mp.weixin.qq.com/s/kk92qix7JnNnbnTtFg9Y9A" target="_blank" rel="noopener noreferrer" class="hover:underline">10.Scaling Law(参数规模越大，模型能力越强)首次在自动驾驶赛道被验证?</a>
+                    </h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                     端到端本质仍然是“小脑”，对输入的道路信息做出的反应是被动式、条件反射式的。小鹏认为问题出在了现行的技术方案上：只局限在车端算力的一亩三分地，模型大小是受限的，能真正消化的数据也是受限的。只有超越车端芯片算力的限制，应用更大的模型、更海量的数据，才能真正实现车端的智能。小鹏“世界基座模型”本身是以大语言模型为骨干网络，使用海量优质驾驶数据训练的VLA大模型，参数量高达720亿，部署在云端。
+                    </p>
+                    <a href="https://mp.weixin.qq.com/s/kk92qix7JnNnbnTtFg9Y9A" target="_blank" rel="noopener noreferrer" class="self-end text-teal-600 hover:underline font-semibold">
+                        阅读更多 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <footer class="bg-white mt-16">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 每日新闻热点。内容根据公开信息整理，仅供参考。</p>
+            <p class="mt-1">交互式报告-2025/6/16</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
