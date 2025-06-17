@@ -122,12 +122,30 @@
                     <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full ">往期新闻回顾</a>
                     <a href="reports.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full active">深度研究报告</a>
                 </nav>
+
                 <div class="md:hidden">
-                    <a href="daily-news.html" class="text-teal-700 font-bold hover:underline">每日新闻</a>
-                    <a href="archive.html" class="ml-4 text-teal-700 font-bold hover:underline">往期新闻</a>
-                    <a href="reports.html" class="ml-4 text-teal-700 font-bold hover:underline">研究报告</a>
-                </div>
+                <button id="mobile-menu-button" class="p-2 rounded-md text-gray-600 hover:text-teal-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-6 w-6" id="hamburger-icon" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg class="h-6 w-6 hidden" id="close-icon" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">AI一周大事件</a>
+            <a href="index.html#comparison-section" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">综合对比</a>
+            <a href="index.html#hot-topics-section" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">本周热门话题</a>
+            <a href="daily-news.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">每日新闻热点</a>
+            <a href="archive.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">往期新闻回顾</a>
+            <a href="reports.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">深度研究报告</a>
+        </div>
         </div>
     </header>
 
@@ -341,6 +359,21 @@ Anthropic详细分享了该系统从原型到产品的全过程，为我们揭�
                 });
             });
         });
+
+ // --- Mobile Menu Toggle Script ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
     </script>
 </body>
 </html>
