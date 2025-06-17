@@ -199,6 +199,83 @@
             opacity: 1;
         }
 
+ /* --- OPTIMIZED GOOGLE ROADMAP STYLES --- */
+        .roadmap-container {
+            position: relative;
+            padding: 1rem 0;
+            width: 100%;
+        }
+        .roadmap-line {
+            position: absolute;
+            top: 12px; /* Center with the dot */
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #cbd5e1; /* slate-300 */
+        }
+        .roadmap-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #2dd4bf, #0d9488);
+            width: 0;
+            transition: width 1s ease-in-out;
+            border-radius: 2px;
+        }
+        .roadmap-nodes {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .roadmap-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100px;
+            cursor: pointer;
+        }
+        .roadmap-node-dot {
+            width: 28px;
+            height: 28px;
+            background-color: #f8f7f4;
+            border: 4px solid #cbd5e1; /* slate-300 */
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #4b5563;
+        }
+        .roadmap-node.active .roadmap-node-dot {
+            border-color: #0d9488;
+            transform: scale(1.15);
+            animation: pulse 1.5s infinite;
+        }
+        .roadmap-info-panel {
+            min-height: 200px; /* Ensure panel doesn't jump in size */
+            transition: background-color 0.5s ease;
+        }
+        .roadmap-info-content {
+            transition: opacity 0.4s ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(13, 148, 136, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+            }
+        }
+        /* --- END OF OPTIMIZED STYLES --- */
+
     </style>
 </head>
 <body class="antialiased">
@@ -215,10 +292,12 @@
                     <a href="#hot-topics-section" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">本周热门话题</a>
                     <a href="daily-news.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">每日新闻热点</a>
                     <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">往期新闻回顾</a>
+                    <a href="reports.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">深度研究报告</a>
                 </nav>
                 <div class="md:hidden">
                     <a href="daily-news.html" class="text-teal-700 font-bold hover:underline">每日新闻</a>
                     <a href="archive.html" class="ml-4 text-teal-700 font-bold hover:underline">往期新闻</a>
+                    <a href="reports.html" class="text-teal-700 font-bold hover:underline">研究报告</a>
                 </div>
             </div>
         </div>
@@ -396,65 +475,77 @@
                     </div>
             </section>
             
-                 <section id="meta-section" class="py-16 bg-white/50 rounded-3xl mx-2 sm:mx-4 md:mx-auto max-w-7xl">
+                <section id="google-section" class="py-16 bg-white/50 rounded-3xl mx-2 sm:mx-4 md:mx-auto max-w-7xl">
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-teal-700">3. 世界模型：AI学习效率的革命</h2>
-                        <p class="mt-4 text-lg text-gray-600">Meta的“世界模型”创新之处在于，它让AI像婴儿一样通过观察来学习，而不是通过海量模拟试错。这带来的效率提升是惊人的。点击下方按钮，直观感受训练时间的巨大差异。</p>
+                        <h2 class="text-3xl font-bold text-teal-700">3. 谷歌的未来宣言：后Transformer时代的AI蓝图</h2>
+                        <p class="mt-4 text-lg text-gray-600">在AI工程师世界博览会上，谷歌坦承了Transformer架构的局限，并首次公开其迈向通用智能体的详细路线图。点击下方路标，探索Gemini的演进路径。</p>
                     </div>
 
-                       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">内容简述</h3>
-                                <p class="text-gray-700 leading-relaxed mb-4">Meta的AI研究院发布了J-VEPA 2，这是一种能通过观看视频来学习物理规律的“世界模型”。它能让AI理解物体如何运动、人如何与环境互动，并预测行为后果。这种“常识”对开发更智能、更安全的机器人和AI助手至关重要，能让它们在行动前“三思”，甚至在陌生的环境里也能高效完成任务。</p>
-                                <a href="https://mp.weixin.qq.com/s/M1mKgpz4ecCIC3xKq50k-A" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-teal-700 font-semibold py-2 px-4 border border-teal-600 rounded-full hover:bg-teal-50 transition-colors">
-                                     相关报道 →
-                                </a>
-                                <div class="mt-8 bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
-                                    <h4 class="font-bold">从业者简评：</h4>
-                                    <p class="text-gray-800 mt-2">“Meta的‘世界模型’正在触及AI的圣杯：常识。过去的AI是‘学舌的鹦鹉’，而拥有常识的AI，才可能成为‘能理解的伙伴’。它不再是单纯地识别像素，而是开始理解物理世界的因果规律。这对机器人、对通用人工智能（AGI）的意义是颠覆性的。我们正在从‘教会AI说话’，迈向‘教会AI思考世界’的关键一步。”</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">内容简述</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">谷歌产品负责人Logan Kilpatrick公布了Gemini的未来规划，核心思想是将模型从被动的“工具”转变为主动的“智能体”(Agent)。其路线图分为短期(推理能力扩展)、中期(默认具备Agent能力)和长期(全模态与无限上下文)三个阶段。最引人注目的是，谷歌明确指出，要实现“无限上下文”，现有注意力机制已到瓶颈，必须在核心架构层面进行全新创新，这似乎预示着AI将进入“后Transformer时代”。</p>
+                            <a href="https://www.bilibili.com/read/cv34827552/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-teal-700 font-semibold py-2 px-4 border border-teal-600 rounded-full hover:bg-teal-50 transition-colors">
+                                相关报道 →
+                            </a>
+                            <div class="mt-8 bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+                                <h4 class="font-bold">从业者简评：</h4>
+                                <p class="text-gray-800 mt-2">“谷歌这次发布的不是一个新模型，而是一份‘战争宣言’。它清晰地告诉市场：竞赛的下半场开始了，焦点不再是谁的模型更大，而是谁能率先突破现有架构的束缚，构建出真正的AI智能体。对投资人而言，这意味着需要重新评估技术护城河，纯粹的应用层创新风险加大，而底层架构和高效智能体的初创公司将迎来黄金机遇。谷歌正在试图将竞争从‘性能’拉到‘架构’和‘生态’的维度上。”</p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-100 p-6 rounded-2xl">
+                             <div class="roadmap-container my-4">
+                                <div class="roadmap-line">
+                                    <div id="roadmap-progress-bar" class="roadmap-progress"></div>
+                                </div>
+                                <div class="roadmap-nodes">
+                                    <div class="roadmap-node">
+                                        <div class="roadmap-node-dot">S</div>
+                                        <p class="font-semibold text-sm mt-2">短期</p>
+                                    </div>
+                                    <div class="roadmap-node">
+                                        <div class="roadmap-node-dot">M</div>
+                                        <p class="font-semibold text-sm mt-2">中期</p>
+                                    </div>
+                                    <div class="roadmap-node">
+                                        <div class="roadmap-node-dot">L</div>
+                                        <p class="font-semibold text-sm mt-2">长期</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bg-stone-100 p-8 rounded-2xl flex flex-col justify-center items-center h-full">
-                                <div class="w-full text-center">
-                                    <div class="text-5xl mb-4">🤖</div>
-                                    <h4 id="training-method-title" class="text-xl font-bold mb-2 text-teal-800">传统强化学习</h4>
-                                    <p class="text-sm text-gray-500 mb-4">(通过海量虚拟环境试错)</p>
-                                    <div class="progress-bar mb-4">
-                                        <div id="progress-fill" class="progress-bar-fill"></div>
+
+                            <div id="roadmap-info-panel" class="roadmap-info-panel bg-white p-6 rounded-xl mt-6">
+                                <div id="roadmap-info-content" class="roadmap-info-content opacity-0">
+                                    <div class="flex items-center mb-3">
+                                        <div id="roadmap-icon" class="text-4xl mr-4"></div>
+                                        <h5 id="roadmap-title" class="text-xl font-bold text-teal-800"></h5>
                                     </div>
-                                    <div class="text-left">
-                                        <p class="font-semibold">预计训练时间:</p>
-                                        <p id="training-time-text" class="text-3xl font-bold text-red-500">2000 小时</p>
-                                    </div>
+                                    <p id="roadmap-description" class="text-gray-700 leading-relaxed"></p>
                                 </div>
-                                <button id="toggle-training-method" class="mt-8 bg-teal-600 text-white font-bold py-3 px-6 rounded-full hover:bg-teal-700 transition-colors">切换至世界模型训练</button>
                             </div>
+                            <p class="text-center text-sm text-gray-500 mt-4">点击路标查看各阶段目标</p>
+                        </div>
                     </div>
                     <div class="mt-8 bg-stone-100 p-6 rounded-lg border border-stone-200 analysis-section">
                         <h4 class="font-bold text-lg mb-4">事件洞察</h4>
                         
                         <p><strong>🌱 事件始末:</strong></p>
                         <p class="text-gray-700 leading-relaxed">
-                            Meta的J-VEPA 2是其首席AI科学家杨立昆（Yann LeCun）长期倡导的“世界模型”研究路线的最新成果。杨立昆认为，当前的大语言模型（LLM）虽然擅长语言理解和生成，但缺乏对物理世界运作的基本“常识”。J-VEPA 2旨在通过观看海量视频数据，学习并理解物体的运动规律、人与环境的互动方式以及行为的因果关系，从而让AI能够预测现实世界的演变。这是构建真正通用人工智能（AGI）道路上的关键一步，突破了仅依赖符号或文本数据的局限。
+                            在AI工程师世界博览会上，谷歌产品负责人Logan Kilpatrick的演讲并非一次常规的产品更新，而是一次罕见的战略“亮底牌”。谷歌作为Transformer架构的发明者，首次在公开路线图中承认其核心技术“注意力机制”存在根本性瓶颈，无法实现真正的“无限上下文”。这一表态，结合其清晰的三步走（增强推理 -> 普及智能体 -> 研发新架构）路线图，标志着谷歌正试图从根本上重塑AI技术的演进路径，并引领行业进入一个全新的“后Transformer”探索时代。
                         </p>
                         
                         <p><strong>💼 行业影响:</strong></p>
                         <p class="text-gray-700 leading-relaxed">
-                            Meta发布的J-VEPA 2模型，标志着其在人工智能研究方向上的一大重要转向，即更加侧重于赋予AI系统物理世界的“常识”——一种对世界运作方式的直观理解。这与当前许多AI模型高度集中于语言处理的趋势有所区别，对于推动具身智能（Embodied AI）、机器人技术以及各类自主系统的发展具有至关重要的意义。Meta首席AI科学家Yann LeCun的表态也印证了这一点，他认为智能的关键并非仅仅是语言，更在于构建现实世界的心理模型。J-VEPA 2通过对视频数据的学习来理解物理交互，正是这一理念的体现，有望解锁超越当前聊天机器人能力、需要与物理环境进行精细互动的AI应用。
-<br>世界模型如J-VEPA 2所具备的通过模拟环境来训练AI的能力，有可能彻底改变AI的开发模式。它能够大幅加速开发周期，同时降低在真实世界中收集数据和进行实验相关的成本与风险，这一点在机器人、自动驾驶等复杂且对安全有极高要求的领域尤为突出。这种能力与业界对合成数据生成日益增长的需求不谋而合，为AI训练提供了更高效、更安全、可扩展性更强的途径。
-
+                            此举将深刻改变AI行业的竞争格局。首先，竞争的焦点将从“模型参数竞赛”转向更根本的“核心架构创新”。承认Transformer的不足，等于为Mamba、RWKV等新架构的探索者打开了机遇之窗，可能催生新一代AI巨头。其次，AI智能体（Agent）成为新的主战场。行业将从比拼模型“智商”（如MMLU跑分）转向比拼“办事能力”（调用工具、完成任务）。这将催生大量专注于特定领域智能体（如金融分析、代码生成、旅行规划）的初创公司。最后，谷歌的AI Studio和Vertex AI平台将成为其战略核心，通过提供强大的智能体构建工具和新架构的API，锁定开发者生态，构建难以逾越的护城河。
                         </p>
-                        <p class="text-gray-700 leading-relaxed">
-                            这标志着AI从“数字智能”向“物理智能”迈出了坚实的一步，为未来的AI应用奠定了更坚实的基础。
-                        </p>
-
+                        
                         <p><strong>🧑‍💻 用户影响:</strong></p>
                         <p class="text-gray-700 leading-relaxed">
-                            虽然短期内普通消费者还无法直接体验到J-VEPA 2的具体应用，但它描绘了一个令人兴奋的未来图景。一个能帮你做家务、会“察言观色”并理解真实世界复杂性的机器人管家，或者一副能真正理解并与你周遭环境无缝互动的AR眼镜，都依赖于这类技术的成熟。未来，AI驱动的机器人将能更安全地与人类协作，智能家居系统将能更好地感知和适应我们的生活习惯，虚拟世界也将变得更加真实和沉浸。这是通向科幻电影中那种高度智能、能与物理世界深度交互的AI助手的必经之路，将深刻改变我们与科技互动的方式。
+                            对普通用户而言，最深远的影响是AI将从一个“被动响应的工具”进化为一个“主动服务的伙伴”。未来，你的AI助手（谷歌称之为“统一助手”）将不再仅仅是回答问题，而是能主动为你处理事务。例如，它能根据你的邮件和日历，在你出差前自动为你预订符合偏好的酒店和航班，并规划好从机场到酒店的路线。得益于“全模态”能力，你可以直接给它看一段家里电器故障的视频，它就能识别问题、搜索解决方案并帮你预约维修。而“无限上下文”的最终实现，意味着这个助手将拥有关于你的完整记忆，成为一个真正懂你、为你着想的“数字孪生”，让数字生活的便利性和个性化达到前所未有的高度。
                         </p>
                     </div>
-                    </div>
+                </div>
             </section>
             
             <section id="toy-section" class="py-16">
@@ -713,55 +804,71 @@
             });
 
 
-            // --- World Model Training Time Simulation Script ---
-            const toggleBtn = document.getElementById('toggle-training-method');
-            const titleEl = document.getElementById('training-method-title');
-            const timeEl = document.getElementById('training-time-text');
-            const progressFillEl = document.getElementById('progress-fill');
+             // --- OPTIMIZED GOOGLE ROADMAP SCRIPT (FIXED) ---
+            const roadmapNodes = document.querySelectorAll('#google-section .roadmap-node');
+            const roadmapProgressBar = document.getElementById('roadmap-progress-bar');
             
-            let isWorldModel = false;
+            const infoContent = document.getElementById('roadmap-info-content');
+            const infoIcon = document.getElementById('roadmap-icon');
+            const infoTitle = document.getElementById('roadmap-title');
+            const infoDescription = document.getElementById('roadmap-description');
 
-            const traditionalData = {
-                title: '传统强化学习',
-                subtitle: '(通过海量虚拟环境试错)',
-                time: '2000 小时',
-                timeColor: 'text-red-500',
-                animClass: 'animate-slow'
-            };
+            const roadmapData = [
+                {
+                    icon: '🧠',
+                    title: '第一阶段：增强推理',
+                    description: '核心是持续增强模型的逻辑推理、规划和多步思考能力。这是构建更复杂、更可靠智能体的坚实基础，让AI不仅能回答，更能思考。'
+                },
+                {
+                    icon: '🛠️',
+                    title: '第二阶段：智能体化',
+                    description: '让模型默认具备Agent能力，能自主理解任务、分解步骤并调用API、数据库等外部工具，从被动的“黑盒”变成主动的“问题解决者”。'
+                },
+                {
+                    icon: '🌌',
+                    title: '第三阶段：新架构',
+                    description: '原生支持视频等多模态输入，并研发后Transformer新架构（如Mamba），实现真正意义上的长效记忆和全场景感知，突破“无限上下文”瓶颈。'
+                }
+            ];
 
-            const worldModelData = {
-                title: '世界模型学习',
-                subtitle: '(通过观察视频学习常识)',
-                time: '20 小时',
-                timeColor: 'text-green-500',
-                animClass: 'animate-fast'
-            };
+            const nodePositions = [0, 50, 100]; // Progress bar positions in percentage
 
-            function updateTrainingView() {
-                const data = isWorldModel ? worldModelData : traditionalData;
+            function updateRoadmap(index) {
+                // Update progress bar and node active state
+                if(roadmapProgressBar) {
+                    roadmapProgressBar.style.width = nodePositions[index] + '%';
+                }
+                roadmapNodes.forEach((node, i) => {
+                    node.classList.remove('active');
+                    if(i === index) node.classList.add('active');
+                });
 
-                titleEl.textContent = data.title;
-                titleEl.nextElementSibling.textContent = data.subtitle;
-                timeEl.textContent = data.time;
-                
-                // Update text color
-                timeEl.classList.remove('text-red-500', 'text-green-500');
-                timeEl.classList.add(data.timeColor);
-
-                // Restart animation
-                progressFillEl.classList.remove('animate-slow', 'animate-fast');
-                void progressFillEl.offsetWidth; // Force reflow to restart animation
-                progressFillEl.classList.add(data.animClass);
+                // Update info panel content with fade effect
+                if(infoContent) {
+                    infoContent.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        const data = roadmapData[index];
+                        infoIcon.textContent = data.icon;
+                        infoTitle.textContent = data.title;
+                        infoDescription.textContent = data.description;
+                        infoContent.style.opacity = '1';
+                    }, 200);
+                }
             }
-            
-            toggleBtn.addEventListener('click', () => {
-                isWorldModel = !isWorldModel;
-                toggleBtn.textContent = isWorldModel ? '切换回传统训练' : '切换至世界模型训练';
-                updateTrainingView();
+
+            // Attach event listeners programmatically
+            roadmapNodes.forEach((node, index) => {
+                node.addEventListener('click', () => {
+                    updateRoadmap(index);
+                });
             });
 
-            // Initial setup
-            updateTrainingView();
+            // Initialize with the first stage
+            if(roadmapNodes.length > 0){
+                updateRoadmap(0);
+            }
+            // --- END OF FIXED GOOGLE SCRIPT ---
 
             // --- AI Toy Interaction ---
             const toggleToyButton = document.getElementById('toggle-ai-toy');
@@ -823,8 +930,8 @@
                             borderColor: 'rgb(255, 99, 132)',
                             pointBackgroundColor: 'rgb(255, 99, 132)',
                         }, {
-                            label: '世界模型',
-                            data: [5, 4, 9, 10],
+                            label: '谷歌AI蓝图', // UPDATED
+                            data: [9, 8, 10, 10], // UPDATED
                              fill: true,
                             backgroundColor: 'rgba(75, 192, 192, 0.2)',
                             borderColor: 'rgb(75, 192, 192)',
