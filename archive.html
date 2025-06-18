@@ -8,33 +8,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Calm Harmony (Stone Neutrals with Teal Accent) -->
-    <!-- Application Structure Plan: This archive page uses a chronological, list-based layout to display past news. Content is grouped by date for clear organization. Each entry is simplified to just a linked title, optimizing for scannability and quick access to source material. The structure is designed to be easily updatable by manually adding new date blocks and news items. -->
-    <!-- Visualization & Content Choices: 
-        1. Date Grouping: Report Info -> Past news events. Goal -> Organize a large volume of past news chronologically. Viz/Method -> HTML headings (h2) for dates, followed by an ordered or unordered list. Justification -> This is a classic, highly intuitive pattern for archives, allowing users to easily navigate to news from a specific day. Library -> None (HTML/CSS).
-        2. Linked Titles: Report Info -> News title and source link. Goal -> Provide a concise summary and direct access to the source. Viz/Method -> A list of linked titles. Justification -> For an archive, users primarily want to scan headlines. This format is clean, space-efficient, and directly serves the user's need to find and access specific past articles. Library -> None (HTML/CSS).
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background-color: #f8f7f4;
+            font-family: 'Noto Sans SC', sans-serif; 
+background-color: #f8f7f4; 
             color: #3d3d3d;
         }
         .nav-button {
-            transition: all 0.3s ease;
-        }
+            transition: all 0.3s ease; 
+}
         .nav-button:hover, .nav-button.active {
-            background-color: #00796b;
-            color: #ffffff;
+            background-color: #00796b; 
+color: #ffffff; 
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2);
-        }
+            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2); 
+}
         .archive-item {
-            transition: background-color 0.2s ease;
-        }
+            transition: background-color 0.2s ease; 
+}
         .archive-item:hover {
-            background-color: #e0f2f1; /* a light teal for hover */
+            background-color: #e0f2f1; 
+/* a light teal for hover */
         }
     </style>
 </head>
@@ -44,25 +38,30 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-teal-700">🗓️ 往期新闻回顾</span>
+                    <span class="text-2xl font-bold text-teal-700">🗓️ 
+往期新闻回顾</span>
                 </div>
                 <nav class="hidden md:flex space-x-2">
                     <a href="index.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">AI一周大事件</a>
                     <a href="daily-news.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">每日新闻热点</a>
-                    <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full active">往期新闻回顾</a>
+           
+         <a href="archive.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full active">往期新闻回顾</a>
                     <a href="reports.html" class="nav-button font-medium text-gray-600 px-4 py-2 rounded-full">深度研究报告</a>
                 </nav>
 
                 <div class="md:hidden">
-                <button id="mobile-menu-button" class="p-2 rounded-md text-gray-600 hover:text-teal-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                <button id="mobile-menu-button" class="p-2 rounded-md text-gray-600 hover:text-teal-700 hover:bg-gray-100 
+focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                     <span class="sr-only">Open main menu</span>
                     <svg class="h-6 w-6" id="hamburger-icon" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+             
+       </svg>
                     <svg class="h-6 w-6 hidden" id="close-icon" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                </button>
+          
+      </button>
             </div>
         </div>
     </div>
@@ -70,13 +69,15 @@
     <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white shadow-lg">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">AI一周大事件</a>
-            <a href="index.html#comparison-section" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">综合对比</a>
+            <a href="index.html#comparison-section" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 
+hover:bg-gray-50">综合对比</a>
             <a href="index.html#hot-topics-section" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">本周热门话题</a>
             <a href="daily-news.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">每日新闻热点</a>
             <a href="archive.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">往期新闻回顾</a>
             <a href="reports.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">深度研究报告</a>
         </div>
-        </div>
+    
+    </div>
     </header>
 
     <main class="py-12 sm:py-16">
@@ -85,94 +86,147 @@
                 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">AI新闻档案</h1>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">在这里，您可以回顾过去浏览过的行业热点事件。</p>
             </div>
-            
+      
+      
             <div class="space-y-12">
-                <!-- Date Block: June 13, 2025 -->
                 <div>
                     <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">2025年6月16日</h2>
-                    <div class="space-y-3">
+                
+    <div class="space-y-3">
                         <div class="archive-item p-4 rounded-lg">
                             <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/hatHETaExiDdcoDIMCNIVw" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">1. 豆包1.6多模态推理发威，闯关带图大题。</a>
+                                <a href="https://mp.weixin.qq.com/s/hatHETaExiDdcoDIMCNIVw" target="_blank" rel="noopener noreferrer" class="font-semibold 
+text-teal-700 hover:underline">1. 豆包1.6多模态推理发威，闯关带图大题。</a>
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/16aXVhz2LJcbZpOFfdNnrg" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">2. AMD最新发布！“新芯片性能优于英伟达”</a>
+                   
+         <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/16aXVhz2LJcbZpOFfdNnrg" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">2. 
+AMD最新发布！“新芯片性能优于英伟达”</a>
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://theoutpost.ai/news-story/us-projects-limited-ai-chip-production-by-huawei-warns-of-china-s-rapid-advancement-16584/" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">3. 中美科技战线：华盛顿对华为半导体进展的最新评估</a>
+                     
+       <p class="text-lg text-gray-800">
+                                <a href="https://theoutpost.ai/news-story/us-projects-limited-ai-chip-production-by-huawei-warns-of-china-s-rapid-advancement-16584/" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">3. 
+中美科技战线：华盛顿对华为半导体进展的最新评估</a>
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/bRPhYTqzhdbSq65AFnnk1Q" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">4. 生产者价格指数降温，助燃美联储降息预期</a>
+                     
+       <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/bRPhYTqzhdbSq65AFnnk1Q" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">4. 
+生产者价格指数降温，助燃美联储降息预期</a>
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/qcs-sSyVUOKNaAe4eLgvug" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">5. 角逐稳定币，美元化卷土重来？</a>
+                     
+       <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/qcs-sSyVUOKNaAe4eLgvug" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">5. 
+角逐稳定币，美元化卷土重来？</a>
                             </p>
                         </div>
                           <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/Xs7DYKvP5P8yLMReaUDk2Q" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">6. 搜索范式革命：纳米AI与谷歌的「超级搜索智能体」共识</a>
+                   
+         <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/Xs7DYKvP5P8yLMReaUDk2Q" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">6. 
+搜索范式革命：纳米AI与谷歌的「超级搜索智能体」共识</a>
                             </p>
                         </div>
                          <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/-xjneBhDSndR-3kD8tpdFQ" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">7. AI Coding的未来，程序员不再写代码！</a>
+                    
+        <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/-xjneBhDSndR-3kD8tpdFQ" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">7. 
+AI Coding的未来，程序员不再写代码！</a>
                             </p>
                         </div>
                           <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://mp.weixin.qq.com/s/pLhFltzX0Jh_PQkN8VeLgg" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">8. 硅谷巨震！Alexandr Wang加入Meta！</a>
+                  
+          <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/pLhFltzX0Jh_PQkN8VeLgg" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">8. 
+硅谷巨震！Alexandr Wang加入Meta！</a>
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
-                            <p class="text-lg text-gray-800">
-                                <a href="https://theoutpost.ai/news-story/mattel-partners-with-open-ai-to-develop-ai-powered-interactive-toys-and-experiences-16563/" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">9. AI进入玩具箱：美泰与OpenAI开辟新领域</a>
+                    
+        <p class="text-lg text-gray-800">
+                                <a href="https://theoutpost.ai/news-story/mattel-partners-with-open-ai-to-develop-ai-powered-interactive-toys-and-experiences-16563/" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">9. 
+AI进入玩具箱：美泰与OpenAI开辟新领域</a>
                             </p>
                         </div>
-                         <!-- Add more items for this date as needed -->
-                    </div>
+                               </div>
                 </div>
 
-                <!-- Date Block: June 14, 2025 -->
                 <div>
-                    <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">2025年6月11日（仅示例）</h2>
-                    <div class="space-y-3">
+                    <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">2025年6月17日</h2>
+             
+       <div class="space-y-3">
                         <div class="archive-item p-4 rounded-lg">
                             <p class="text-lg text-gray-800">
-                                <a href="https://example.com/past-news-3" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">1. 开源社区发布全新AI框架，大幅降低开发者入门门槛。</a>
+                                <a href="https://mp.weixin.qq.com/s/SEyuyCjnL17rZwuIPfRQYg" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">1. 谷歌AI路线图曝光：竟要抛弃注意力机制？</a> 
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
                             <p class="text-lg text-gray-800">
-                                <a href="https://example.com/past-news-4" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">2. AI在农业领域的应用取得进展，实现精准灌溉与病虫害防治。</a>
+                                <a href="https://mp.weixin.qq.com/s/WAkVPeG5lkdIUkABJwDnTQ" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">2. 我国成功开展首例侵入式脑机接口临床试验</a> 
                             </p>
                         </div>
                         <div class="archive-item p-4 rounded-lg">
                             <p class="text-lg text-gray-800">
-                                <a href="https://example.com/past-news-5" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">3. 针对AI生成内容的版权归属问题，法律界展开新一轮讨论。</a>
+                                <a href="https://mp.weixin.qq.com/s/HKASxH3ZJAaxoxSWdwBj8g" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">3. 性能比肩Deepseek-R1，MiniMax推出全球最长上下文推理模型M1</a> 
                             </p>
                         </div>
-                         <!-- Add more items for this date as needed -->
-                    </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://techcrunch.com/2025/06/14/google-reportedly-plans-to-cut-ties-with-scale-ai/" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">4. 谷歌计划切断与 Scale AI 的联系</a> 
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://www.xinhuanet.com/world/20250614/4b48a9ac4a604c04850589fad913e837/c.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">5. 恐慌指数飙升：中东冲突引爆全球市场</a> 
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/yZOUzoEHQdBuNFrSIXVB9w" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">6. 带瘫全球互联网，Google云全球故障</a> 
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://economictimes.indiatimes.com/tech/artificial-intelligence/y-combinators-spring-2025-batch-features-70-startups-focused-on-agentic-ai/articleshow/121860763.cms" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">7. AI创投热潮：资本涌入“智能体”赛道</a> 
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://www.gov.cn/lianbo/bumen/202506/content_7027918.htm" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">8. “AI+”的经济印证：中国高技术产业增长15%</a> 
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://www.sohu.com/a/855472328_122066678" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">9. IP变现新路径：泡泡玛特进军珠宝市场</a> 
+                            </p>
+                        </div>
+                        <div class="archive-item p-4 rounded-lg">
+                            <p class="text-lg text-gray-800">
+                                <a href="https://mp.weixin.qq.com/s/kk92qix7JnNnbnTtFg9Y9A" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">10. Scaling Law(参数规模越大，模型能力越强)首次在自动驾驶赛道被验证?</a> 
+                            </p>
+                        </div>
+                               </div>
                 </div>
                 
-                <!-- This is the template block you can copy and paste to add a new date -->
                 <div id="template-block" class="hidden">
-                    <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">YYYY年MM月DD日</h2>
+            
+        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">YYYY年MM月DD日</h2>
                     <div class="space-y-3">
                         <div class="archive-item p-4 rounded-lg">
                             <p class="text-lg text-gray-800">
-                                <a href="PASTE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">PASTE_TITLE_HERE</a>
+       
+                         <a href="PASTE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 hover:underline">PASTE_TITLE_HERE</a>
                             </p>
                         </div>
-                    </div>
+                
+    </div>
                 </div>
 
             </div>
@@ -181,7 +235,8 @@
 
     <footer class="bg-white mt-16">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-            <p>&copy; AI热点解读。内容根据公开信息整理，仅供参考。</p>
+            <p>&copy; 
+AI热点解读。内容根据公开信息整理，仅供参考。</p>
             <p class="mt-1">交互式报告-W24</p>
         </div>
     </footer>
@@ -199,14 +254,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mobileMenuButton) { // 增加一个检查，确保元素存在，防止报错
         mobileMenuButton.addEventListener('click', () => {
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+ 
+           const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
 
             // 核心修正：将布尔值转换为字符串
             mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
 
             // 以下逻辑是正确的，无需修改
-            mobileMenu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden'); [cite: 125]
+hamburgerIcon.classList.toggle('hidden'); [cite: 125]
             closeIcon.classList.toggle('hidden');
         });
     }
