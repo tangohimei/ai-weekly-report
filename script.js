@@ -37,94 +37,107 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderOverview() {
         const html = `
-            <!-- Metrics Row -->
+            <!-- 1. KPI Cards Row -->
             <div class="metrics-grid">
-                <div class="card metric-card">
-                    <div class="metric-icon icon-bg-1"><i class="fa-solid fa-chart-bar"></i></div>
-                    <div class="metric-info">
-                        <span class="metric-label">总任务数</span>
-                        <h3 class="metric-value">2,300</h3>
-                        <span class="metric-trend positive">+12% <i class="fa-solid fa-arrow-up"></i></span>
+                <!-- Card 1: 总完成率 -->
+                <div class="kpi-card">
+                    <div class="kpi-bg-shape"></div>
+                    <div class="kpi-header">
+                        <div class="kpi-icon-box bg-blue-light"><i class="fa-solid fa-check-square"></i></div>
+                        <span class="kpi-title">总完成率</span>
+                    </div>
+                    <div>
+                        <div class="kpi-value">55.6%</div>
+                        <div class="kpi-subtext">完成: <span style="color:#2B3674;font-weight:600;">10</span> / 总数: 18</div>
                     </div>
                 </div>
-                <div class="card metric-card">
-                    <div class="metric-icon icon-bg-2"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                    <div class="metric-info">
-                        <span class="metric-label">智能评分均值</span>
-                        <h3 class="metric-value">4.8%</h3>
-                        <span class="metric-trend negative">-2% <i class="fa-solid fa-arrow-down"></i></span>
+
+                <!-- Card 2: 按时交付率 -->
+                <div class="kpi-card">
+                    <div class="kpi-bg-shape"></div>
+                    <div class="kpi-header">
+                        <div class="kpi-icon-box bg-green-light"><i class="fa-solid fa-stopwatch"></i></div>
+                        <span class="kpi-title">按时交付率</span>
+                    </div>
+                    <div>
+                        <div class="kpi-value">38.9%</div>
+                        <div class="kpi-subtext">超时工单: <span class="text-red">3</span></div>
                     </div>
                 </div>
-                <div class="card metric-card">
-                    <div class="metric-icon icon-bg-3"><i class="fa-solid fa-clipboard-check"></i></div>
-                    <div class="metric-info">
-                        <span class="metric-label">质检合格率</span>
-                        <h3 class="metric-value">98.5%</h3>
+
+                <!-- Card 3: 本月工单总量 (紫色) -->
+                <div class="kpi-card purple-card">
+                    <div class="kpi-bg-shape"></div>
+                    <div class="kpi-header">
+                        <div class="kpi-icon-box bg-transparent-white"><i class="fa-solid fa-chart-line"></i></div>
+                        <span class="kpi-title">本月工单总量</span>
+                    </div>
+                    <div>
+                        <div class="kpi-value">18</div>
+                        <div class="kpi-subtext">较上月环比 <span class="text-white-bold">+12.5%</span></div>
                     </div>
                 </div>
-                <div class="card metric-card">
-                    <div class="metric-icon icon-bg-4"><i class="fa-solid fa-user-check"></i></div>
-                    <div class="metric-info">
-                        <span class="metric-label">客户满意度</span>
-                        <h3 class="metric-value">96.4</h3>
+
+                <!-- Card 4: 不合格率 -->
+                <div class="kpi-card">
+                    <div class="kpi-bg-shape"></div>
+                    <div class="kpi-header">
+                        <div class="kpi-icon-box bg-red-light"><i class="fa-solid fa-shield-halved"></i></div>
+                        <span class="kpi-title">不合格率</span>
+                    </div>
+                    <div>
+                        <div class="kpi-value">70.0%</div>
+                        <div class="kpi-subtext">不合格数: <span class="text-red">7</span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Charts Row -->
-            <div class="charts-grid">
-                <div class="card chart-card wide">
-                    <div class="card-header">
-                        <h3>抽检数量趋势</h3>
-                        <div class="card-actions">
-                            <span style="font-size: 12px; color: #4318FF; margin-right: 10px;">● 方案筛选</span>
-                            <span style="font-size: 12px; color: #8B5CF6; margin-right: 10px;">● 目标位</span>
-                            <span style="font-size: 12px; color: #CBD5E1;">● 分布</span>
-                        </div>
+            <!-- 2. Middle Charts Row -->
+            <div class="charts-row-2">
+                <!-- Stacked Bar Chart -->
+                <div class="card">
+                    <div class="chart-header-row">
+                        <div class="chart-title">抽检数量分布趋势</div>
+                        <div class="chart-tag">工单类型维度</div>
                     </div>
-                    <div id="barChart" style="height: 300px;"></div>
+                    <div id="stackedBarChart" style="height: 320px;"></div>
                 </div>
-                <div class="card chart-card narrow">
-                    <div class="card-header">
-                        <h3>工单类型构成</h3>
+
+                <!-- Line Chart -->
+                <div class="card">
+                    <div class="chart-header-row">
+                        <div class="chart-title">抽检比例监控</div>
                     </div>
-                    <div id="donutChart" style="height: 300px;"></div>
+                    <div id="lineChart" style="height: 320px;"></div>
                 </div>
             </div>
 
-            <!-- Table Row -->
-            <div class="card table-card">
-                <div class="card-header">
-                    <h3>最新抽检工单记录</h3>
-                    <button class="export-btn">查看全部</button>
+            <!-- 3. Bottom Charts Row -->
+            <div class="charts-row-3">
+                <!-- Donut 1 -->
+                <div class="card">
+                    <div class="chart-header-row">
+                        <div class="chart-title">进度状态分析 (完成 vs 未完成)</div>
+                    </div>
+                    <div id="donutProgress" style="height: 300px;"></div>
                 </div>
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>工单编号</th>
-                                <th>工单类型</th>
-                                <th>病例类型</th>
-                                <th>被抽检组别</th>
-                                <th>抽检人</th>
-                                <th>状态</th>
-                                <th>完成时间</th>
-                                <th>得分</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Data populated by JS -->
-                        </tbody>
-                    </table>
+
+                <!-- Donut 2 -->
+                <div class="card">
+                    <div class="chart-header-row">
+                        <div class="chart-title">按时交付分布</div>
+                    </div>
+                    <div id="donutOnTime" style="height: 300px;"></div>
                 </div>
             </div>
         `;
         contentArea.innerHTML = html;
 
-        // Initialize Charts
-        initBarChart();
-        initDonutChart();
-        populateTable();
+        // Initialize all charts
+        initStackedBarChart();
+        initLineChart();
+        initDonutProgress();
+        initDonutOnTime();
     }
 
     function renderAnalysis() {
@@ -247,46 +260,153 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Chart Initializers ---
 
-    function initBarChart() {
-        const chartDom = document.getElementById('barChart');
-        if (!chartDom) return;
+    function initStackedBarChart() {
+        const chartDom = document.getElementById('stackedBarChart');
         const myChart = echarts.init(chartDom);
         const option = {
-            tooltip: { trigger: 'axis' },
-            legend: { show: false },
-            grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
-            xAxis: { type: 'category', data: ['10月', '11月', '12月'], axisLine: { show: false }, axisTick: { show: false } },
-            yAxis: { type: 'value', splitLine: { lineStyle: { type: 'dashed' } } },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { bottom: 0, itemWidth: 12, itemHeight: 12 },
+            grid: { left: '3%', right: '4%', bottom: '10%', top: '10%', containLabel: true },
+            xAxis: {
+                type: 'category',
+                data: ['10月', '11月', '12月'],
+                axisLine: { show: true, lineStyle: { color: '#E0E5F2' } },
+                axisTick: { show: false },
+                axisLabel: { color: '#A3AED0' }
+            },
+            yAxis: {
+                type: 'value',
+                splitLine: { show: false }, // Remove horizontal grid lines to match image style
+                axisLabel: { color: '#A3AED0' }
+            },
             series: [
-                { name: '方案筛选', type: 'bar', stack: 'total', itemStyle: { color: '#5B6BFF' }, data: [950, 1200, 1500] },
-                { name: '目标位', type: 'bar', stack: 'total', itemStyle: { color: '#8B5CF6' }, data: [450, 350, 450] },
-                { name: '分布', type: 'bar', stack: 'total', itemStyle: { color: '#CBD5E1', borderRadius: [5, 5, 0, 0] }, data: [650, 750, 850] }
+                {
+                    name: '方案筛选',
+                    type: 'bar',
+                    stack: 'total',
+                    barWidth: 50,
+                    itemStyle: { color: '#6366F1' }, // Blue-ish Purple
+                    data: [950, 1200, 1500]
+                },
+                {
+                    name: '目标位',
+                    type: 'bar',
+                    stack: 'total',
+                    itemStyle: { color: '#8B5CF6' }, // Purple
+                    data: [450, 350, 450]
+                },
+                {
+                    name: '分布',
+                    type: 'bar',
+                    stack: 'total',
+                    itemStyle: { color: '#A78BFA', borderRadius: [6, 6, 0, 0] }, // Light Purple
+                    data: [650, 750, 850]
+                }
             ]
         };
         myChart.setOption(option);
         window.addEventListener('resize', () => myChart.resize());
     }
 
-    function initDonutChart() {
-        const chartDom = document.getElementById('donutChart');
-        if (!chartDom) return;
+    function initLineChart() {
+        const chartDom = document.getElementById('lineChart');
+        const myChart = echarts.init(chartDom);
+        const option = {
+            tooltip: { trigger: 'axis' },
+            legend: { bottom: 0, icon: 'circle' },
+            grid: { left: '3%', right: '4%', bottom: '10%', top: '15%', containLabel: true },
+            xAxis: {
+                type: 'category',
+                data: ['10月', '11月', '12月'],
+                boundaryGap: false,
+                axisLine: { show: true, lineStyle: { color: '#E0E5F2' } },
+                axisTick: { show: false },
+                axisLabel: { color: '#A3AED0' }
+            },
+            yAxis: {
+                type: 'value',
+                min: 0,
+                max: 30,
+                interval: 5,
+                splitLine: { lineStyle: { type: 'dashed', color: '#E0E5F2' } },
+                axisLabel: { formatter: '{value}%', color: '#A3AED0' }
+            },
+            series: [
+                {
+                    name: '方案筛选',
+                    type: 'line',
+                    smooth: true,
+                    symbolSize: 8,
+                    itemStyle: { color: '#F59E0B' }, // Orange/Yellow
+                    lineStyle: { width: 3 },
+                    data: [20, 30, 10]
+                },
+                {
+                    name: '目标位',
+                    type: 'line',
+                    smooth: true,
+                    symbolSize: 8,
+                    itemStyle: { color: '#EF4444' }, // Red
+                    lineStyle: { width: 3 },
+                    data: [5, 10, 2]
+                },
+                {
+                    name: '分布',
+                    type: 'line',
+                    smooth: true,
+                    symbolSize: 8,
+                    itemStyle: { color: '#10B981' }, // Green
+                    lineStyle: { width: 3 },
+                    data: [4, 4, 5]
+                }
+            ]
+        };
+        myChart.setOption(option);
+        window.addEventListener('resize', () => myChart.resize());
+    }
+
+    function initDonutProgress() {
+        const chartDom = document.getElementById('donutProgress');
         const myChart = echarts.init(chartDom);
         const option = {
             tooltip: { trigger: 'item' },
-            legend: { bottom: 0, data: ['方案筛选', '目标位', '分布'] },
+            legend: { orient: 'vertical', right: '10%', top: 'center', icon: 'circle' },
             series: [
                 {
-                    name: '工单类型',
+                    name: '进度状态',
                     type: 'pie',
-                    radius: ['50%', '75%'],
+                    radius: ['55%', '75%'],
+                    center: ['35%', '50%'],
                     avoidLabelOverlap: false,
-                    itemStyle: { borderRadius: 0, borderColor: '#fff', borderWidth: 2 },
-                    label: { show: true, position: 'center', formatter: '{a|最大占比}\n{b|52%}\n{c|方案筛选}', rich: { a: { color: '#999', fontSize: 12, lineHeight: 20 }, b: { fontSize: 24, fontWeight: 'bold', color: '#333', lineHeight: 30 }, c: { fontSize: 12, color: '#5B6BFF', backgroundColor: '#EEF2FF', padding: [4, 8], borderRadius: 4 } } },
-                    labelLine: { show: false },
+                    label: { show: false },
                     data: [
-                        { value: 52, name: '方案筛选', itemStyle: { color: '#5B6BFF' } },
-                        { value: 28, name: '目标位', itemStyle: { color: '#8B5CF6' } },
-                        { value: 20, name: '分布', itemStyle: { color: '#CBD5E1' } }
+                        { value: 55.6, name: '已完成', itemStyle: { color: '#6366F1' } },
+                        { value: 44.4, name: '未完成 (执行中/暂停/终止)', itemStyle: { color: '#E2E8F0' } }
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+        window.addEventListener('resize', () => myChart.resize());
+    }
+
+    function initDonutOnTime() {
+        const chartDom = document.getElementById('donutOnTime');
+        const myChart = echarts.init(chartDom);
+        const option = {
+            tooltip: { trigger: 'item' },
+            legend: { orient: 'vertical', right: '10%', top: 'center', icon: 'circle' },
+            series: [
+                {
+                    name: '交付分布',
+                    type: 'pie',
+                    radius: ['55%', '75%'],
+                    center: ['35%', '50%'],
+                    avoidLabelOverlap: false,
+                    label: { show: false },
+                    data: [
+                        { value: 70, name: '按时完成', itemStyle: { color: '#10B981' } },
+                        { value: 30, name: '超时完成', itemStyle: { color: '#EF4444' } }
                     ]
                 }
             ]
