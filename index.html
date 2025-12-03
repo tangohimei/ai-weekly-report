@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全景监控 Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <span class="logo-text">全景监控<br><small>PANORAMIC</small></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="overview">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>全景监控</span>
+                </a>
+                <a href="#" class="nav-item" data-page="analysis">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>结果列表</span>
+                </a>
+                <a href="#" class="nav-item" data-page="reports">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>质检效能</span>
+                </a>
+
+            </nav>
+            <div class="sidebar-footer">
+                <div class="upgrade-card">
+                    <div class="upgrade-icon">✨</div>
+                    <p>Upgrade to PRO</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-path">Pages / 全景监控</span>
+                    <h1 class="page-title">全景监控</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-moon"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-circle-info"></i></button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=random" alt="User">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div id="content-area" class="content-area">
+                <!-- Dynamic Content will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
